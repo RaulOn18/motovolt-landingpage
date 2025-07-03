@@ -1,0 +1,25 @@
+Panic in agent.Run: runtime error: invalid memory address or nil pointer dereference
+
+Time: 2025-07-03T18:54:21+07:00
+
+Stack Trace:
+goroutine 2682 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:26 +0x5e
+github.com/opencode-ai/opencode/internal/logging.RecoverPanic({0x179729f, 0x9}, 0xc000053f58)
+	C:/Users/Fazzrul/go/pkg/mod/github.com/opencode-ai/opencode@v0.0.55/internal/logging/logger.go:85 +0x325
+panic({0x14b9120?, 0x2ae46f0?})
+	C:/Program Files/Go/src/runtime/panic.go:792 +0x132
+github.com/opencode-ai/opencode/internal/llm/tools/shell.(*PersistentShell).Exec(...)
+	C:/Users/Fazzrul/go/pkg/mod/github.com/opencode-ai/opencode@v0.0.55/internal/llm/tools/shell/shell.go:272
+github.com/opencode-ai/opencode/internal/llm/tools.(*bashTool).Run(0xc002476260, {0x1dc9038, 0xc00262e510}, {{0xc001738870, 0x29}, {0xc001a0e800, 0x4}, {0xc000197800, 0x1b}})
+	C:/Users/Fazzrul/go/pkg/mod/github.com/opencode-ai/opencode@v0.0.55/internal/llm/tools/bash.go:288 +0x812
+github.com/opencode-ai/opencode/internal/llm/agent.(*agent).streamAndHandleEvents(0xc000272000, {0x1dc9070, 0xc000546500}, {0xc001738990, 0x24}, {0xc000f7c508, 0x7, 0xc})
+	C:/Users/Fazzrul/go/pkg/mod/github.com/opencode-ai/opencode@v0.0.55/internal/llm/agent/agent.go:390 +0xcbe
+github.com/opencode-ai/opencode/internal/llm/agent.(*agent).processGeneration(0xc000272000, {0x1dc9070, 0xc000546500}, {0xc001738990, 0x24}, {_, _}, {0x0, 0x0, 0x0})
+	C:/Users/Fazzrul/go/pkg/mod/github.com/opencode-ai/opencode@v0.0.55/internal/llm/agent/agent.go:284 +0x8a5
+github.com/opencode-ai/opencode/internal/llm/agent.(*agent).Run.func1()
+	C:/Users/Fazzrul/go/pkg/mod/github.com/opencode-ai/opencode@v0.0.55/internal/llm/agent/agent.go:219 +0x3c8
+created by github.com/opencode-ai/opencode/internal/llm/agent.(*agent).Run in goroutine 1
+	C:/Users/Fazzrul/go/pkg/mod/github.com/opencode-ai/opencode@v0.0.55/internal/llm/agent/agent.go:210 +0x2b6
+
